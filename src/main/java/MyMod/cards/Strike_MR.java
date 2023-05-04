@@ -1,7 +1,6 @@
 package MyMod.cards;
 
 import MyMod.characters.mountainsRiver;
-import MyMod.pathes.AbstractCardEnum;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

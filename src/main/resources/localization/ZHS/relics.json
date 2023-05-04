@@ -1,0 +1,9 @@
+{
+  "Starter_Relic": {
+    "NAME": "山水之间",
+    "FLAVOR": "测试遗物",
+    "DESCRIPTIONS": [
+      "每场战斗开始时获得3点力量和3点敏捷"
+    ]
+  }
+}

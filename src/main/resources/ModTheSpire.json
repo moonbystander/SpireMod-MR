@@ -1,0 +1,13 @@
+{
+  "modid": "Test_mod_mountains_rivers",
+  "name": "山水之间",
+  "author_list": [
+    "山川水线"
+  ],
+  "description": "this is a test of mod",
+  "version": "0.0.1",
+  "sts_version": "08-15-2021",
+  "dependencies": [
+    "basemod"
+  ]
+}
