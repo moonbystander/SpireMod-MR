@@ -1,10 +1,22 @@
 {
   "Strike_MR": {
-    "NAME": "打击",
+    "NAME": "流水",
     "DESCRIPTION": "造成 !D! 点伤害。获得 !M! 点力量。"
   },
   "Defend_MR": {
-    "NAME": "防御",
+    "NAME": "高山",
     "DESCRIPTION": "获得 !B! 点格挡。获得 !M! 点敏捷。"
+  },
+  "RiverFlow":{
+    "NAME": "川流不息",
+    "DESCRIPTION": "使用两点敏捷，抽取 !M! 张牌，丢弃1张牌"
+  },
+  "2":{
+    "NAME": "山洪爆发",
+    "DESCRIPTION": "使用所有敏捷，每使用两点敏捷造成一次一点伤害"
+  },
+  "3":{
+    "NAME": "泥石流",
+    "DESCRIPTION": "使用 !M! 点力量，丢弃所有手牌，每丢弃一张造成八点伤害"
   }
 }

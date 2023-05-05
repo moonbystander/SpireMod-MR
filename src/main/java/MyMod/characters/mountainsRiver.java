@@ -1,7 +1,7 @@
 package MyMod.characters;
 
-import MyMod.cards.Defend_MR;
-import MyMod.cards.Strike_MR;
+import MyMod.cards.skill.Defend_MR;
+import MyMod.cards.attack.Strike_MR;
 import MyMod.modcore.MRMod;
 import MyMod.relics.Starter_Relic;
 import basemod.abstracts.CustomPlayer;
@@ -59,7 +59,7 @@ public class mountainsRiver extends CustomPlayer {
         super(name, Enums.MR_CLASS,ORB_TEXTURES, ORB_VFX, LAYER_SPEED, null, null);
         this.dialogX = this.drawX + 0.0F * Settings.scale;
         this.dialogY = this.drawY + 220.0F * Settings.scale;
-        initializeClass((String)null, MR_SHOULDER_2, MR_SHOULDER_1, (String) null,
+        initializeClass("img/char/person.png", MR_SHOULDER_2, MR_SHOULDER_1, "img/char/fallen.png",
                 getLoadout(),
                 0.0F, 5.0F, 240.0F, 300.0F,
                 new EnergyManager(ENERGY_PER_TURN));

@@ -1,7 +1,7 @@
 package MyMod.modcore;
 
-import MyMod.cards.Defend_MR;
-import MyMod.cards.Strike_MR;
+import MyMod.cards.skill.Defend_MR;
+import MyMod.cards.attack.Strike_MR;
 import MyMod.characters.mountainsRiver;
 import MyMod.relics.Starter_Relic;
 import basemod.BaseMod;
