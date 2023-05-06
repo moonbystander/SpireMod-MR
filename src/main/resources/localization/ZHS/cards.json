@@ -11,12 +11,52 @@
     "NAME": "川流不息",
     "DESCRIPTION": "使用两点敏捷，抽取 !M! 张牌，丢弃1张牌"
   },
-  "2":{
-    "NAME": "山洪爆发",
+  "Flood":{
+    "NAME": "洪水",
     "DESCRIPTION": "使用所有敏捷，每使用两点敏捷造成一次一点伤害"
   },
-  "3":{
+  "DebrisFlow":{
     "NAME": "泥石流",
-    "DESCRIPTION": "使用 !M! 点力量，丢弃所有手牌，每丢弃一张造成八点伤害"
+    "DESCRIPTION": "使用 !M! 点力量，丢弃所有手牌，每丢弃1张造成3点伤害并获得1点格挡"
+  },
+  "BecomeMountain": {
+    "NAME": "积土成山",
+    "DESCRIPTION": "接下来 !M! 回合，每回合获得2点敏捷"
+  },
+  "RainOriginated":{
+    "NAME": "风雨兴焉",
+    "DESCRIPTION": "如果拥有至少 !M! 点敏捷，每回合获得3点再生"
+  },
+  "BecomeAbyss": {
+    "NAME": "积水成渊",
+    "DESCRIPTION": "接下来 !M! 回合，每回合获得1点力量"
+  },
+  "DragonBorn": {
+    "NAME": "蛟龙生焉",
+    "DESCRIPTION": "如果拥有至少5点力量，每回合对所有敌人造成 !D! 点伤害"
+  },
+  "Landslide": {
+    "NAME": "山崩",
+    "DESCRIPTION": "最大生命值减少20，造成敏捷 !D! 倍的伤害。 NL 消耗"
+  },
+  "2": {
+    "NAME": "流水潺潺",
+    "DESCRIPTION": "使用 !M! 点敏捷，获得5点再生"
+  },
+  "3": {
+    "NAME": "愚公移山",
+    "DESCRIPTION": "获得 !M! 点最大生命值"
+  },
+  "4": {
+    "NAME": "精卫填海",
+    "DESCRIPTION": "将力量全部转换为敏捷"
+  },
+  "5": {
+    "NAME": "暴虎冯河",
+    "DESCRIPTION": "将敏捷全部转换为力量"
+  },
+  "6": {
+    "NAME": "泄洪",
+    "DESCRIPTION": "使用所有力量，对所有敌人造成失去力量数3倍的伤害"
   }
 }

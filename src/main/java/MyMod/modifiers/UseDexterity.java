@@ -12,11 +12,18 @@ import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 public class UseDexterity extends AbstractCardModifier implements AlternateCardCostModifier {
 
     private int needDexterity=0;
-    private AbstractGameAction[] actions=new AbstractGameAction[0];
 
-    public UseDexterity(int needDexterity,AbstractGameAction[] actions) {
-        this.needDexterity = needDexterity;
-        this.actions=actions;
+    public UseDexterity(int needDexterity) {
+        this.needDexterity=needDexterity;
+    }
+
+
+    public void setNeedDexterity(int needDexterity){
+        this.needDexterity=needDexterity;
+    }
+
+    public int getNeedDexterity(){
+        return needDexterity;
     }
 
     @Override
@@ -29,19 +36,18 @@ public class UseDexterity extends AbstractCardModifier implements AlternateCardC
     //这里仅负责消耗敏捷
     @Override
     public int spendAlternateCost(AbstractCard abstractCard, int i) {
+
         int resource=-1;
         if (AbstractDungeon.player.hasPower(DexterityPower.POWER_ID)){
             if (AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount > 0 ){
                 resource=AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount;
             }
         }
-        if (resource > 0 && resource > needDexterity){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new LoseDexterityPower(AbstractDungeon.player,needDexterity),needDexterity));
-            if (actions.length > 0 ){
-                //将actions的所有action依次加入队列
-                for (AbstractGameAction action:actions) {
-                    AbstractDungeon.actionManager.addToBottom(action);
-                }
+        if (resource > 0 && resource >= needDexterity && needDexterity >= -1){
+            if (needDexterity == -1){
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new DexterityPower(AbstractDungeon.player,-resource),-resource));
+            }else {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new DexterityPower(AbstractDungeon.player,-needDexterity),-needDexterity));
             }
             i=0;
         }
@@ -49,14 +55,14 @@ public class UseDexterity extends AbstractCardModifier implements AlternateCardC
     }
 
 
-    //确定消耗资源的时机在能量使用前还是能量使用后，默认false：能量使用后
+    //确定消耗资源的时机在能量使用前还是能量使用后，默认false：优先使用能量
     @Override
     public boolean prioritizeAlternateCost(AbstractCard card) {
-        return false;
+        return true;
     }
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new UseDexterity(needDexterity,actions);
+        return new UseDexterity(needDexterity);
     }
 }

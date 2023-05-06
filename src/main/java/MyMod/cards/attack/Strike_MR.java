@@ -30,6 +30,7 @@ public class Strike_MR extends AbstractMRCard {
 
     //调用父类的构造方法，传参为super(卡牌ID,卡牌名称，卡片图片,能量花费，卡牌描述，卡牌类型，卡牌颜色，卡牌稀有度，卡牌目标)
     public Strike_MR() {
+
         super(ID, NAME, AbstractMRCard.TESTIMG, COST, DESCRIPTION, CardType.ATTACK, mountainsRiver.Enums.MR_CARD_COLOR , CardRarity.BASIC, CardTarget.ENEMY);
         //添加基础攻击标签和将伤害设为6
         this.tags.add(CardTags.STARTER_STRIKE);
@@ -56,7 +57,7 @@ public class Strike_MR extends AbstractMRCard {
 
         //参数:动作事件(作用对象,伤害信息(来源,数值,不知道什么玩意),不知道什么玩意,不知道什么玩意)
         this.addToBot((AbstractGameAction)new DamageAction((AbstractCreature)abstractMonster,
-                new DamageInfo((AbstractCreature)abstractPlayer,
+                new DamageInfo(abstractPlayer,
                         this.damage, this.damageTypeForTurn),
                 AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 

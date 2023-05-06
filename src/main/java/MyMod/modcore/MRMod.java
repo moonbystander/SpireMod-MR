@@ -1,9 +1,14 @@
 package MyMod.modcore;
 
+import MyMod.cards.AbstractMRCard;
+import MyMod.cards.attack.DebrisFlow;
+import MyMod.cards.attack.Flood;
 import MyMod.cards.skill.Defend_MR;
 import MyMod.cards.attack.Strike_MR;
+import MyMod.cards.skill.RiverFlow;
 import MyMod.characters.mountainsRiver;
 import MyMod.relics.Starter_Relic;
+import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
@@ -52,8 +57,15 @@ public class MRMod implements EditCardsSubscriber, EditStringsSubscriber, EditCh
 
         BaseMod.addCard(new Strike_MR());
         BaseMod.addCard(new Defend_MR());
+        BaseMod.addCard(new RiverFlow());
+        BaseMod.addCard(new Flood());
+        BaseMod.addCard(new DebrisFlow());
 
-        //TODO:使用 AutoAdd自动注册所有卡牌
+//        //TODO:使用 AutoAdd自动注册所有卡牌
+//        new AutoAdd("Test_mod_mountains_rivers")
+//                .packageFilter(AbstractMRCard.class)
+//                .setDefaultSeen(true)
+//                .cards();
 
     }
 

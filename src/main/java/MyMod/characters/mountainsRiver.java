@@ -1,7 +1,10 @@
 package MyMod.characters;
 
+import MyMod.cards.attack.DebrisFlow;
+import MyMod.cards.attack.Flood;
 import MyMod.cards.skill.Defend_MR;
 import MyMod.cards.attack.Strike_MR;
+import MyMod.cards.skill.RiverFlow;
 import MyMod.modcore.MRMod;
 import MyMod.relics.Starter_Relic;
 import basemod.abstracts.CustomPlayer;
@@ -67,18 +70,20 @@ public class mountainsRiver extends CustomPlayer {
     }
 
 
-    //TODO:实现下列方法
-    //设定初始卡组
+
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList();
         int x;
-        for(x = 0; x < 5; ++x) {
+        for(x = 0; x < 3; ++x) {
             retVal.add(Strike_MR.ID);
         }
-        for(x = 0; x < 5; ++x) {
+        for(x = 0; x < 4; ++x) {
             retVal.add(Defend_MR.ID);
         }
+        retVal.add(DebrisFlow.ID);
+        retVal.add(Flood.ID);
+        retVal.add(RiverFlow.ID);
         return retVal;
     }
 
