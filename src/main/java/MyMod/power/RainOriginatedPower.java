@@ -1,8 +1,8 @@
 package MyMod.power;
 
-
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.unique.RegenAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,30 +10,27 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.RegenPower;
 
+public class RainOriginatedPower extends AbstractPower {
 
-//回合开始时添加getD点敏捷
-public class BecomeMountainPower extends AbstractPower {
     // 能力的ID
-    public static String POWER_ID = "BecomeMountainPower";
+    public static String POWER_ID = "RainOriginatedPower";
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public int getRegen;
 
 
-
-
-
-    public BecomeMountainPower(AbstractCreature owner,int amount){
-        this.amount=amount;
-
-        this.name = NAME;
-        this.ID = BecomeMountainPower.POWER_ID;
-        this.owner = owner;
+    public RainOriginatedPower(AbstractCreature owner,int getRegen){
+        this.amount=-1;
+        this.getRegen=getRegen;
+        this.owner=owner;
         this.type = PowerType.BUFF;
+        this.ID=RainOriginatedPower.POWER_ID;
 
         String path128 = "img/powers/text84.png";
         String path48 = "img/powers/text32.png";
@@ -49,23 +46,7 @@ public class BecomeMountainPower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         this.flash();
-
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player,2 ),2));
-
-        AbstractPower p = this.owner.getPower(BecomeMountainPower.POWER_ID);
-        if (p != null) {
-            --p.amount;
-            if (p.amount == 0) {
-                this.owner.powers.remove(p);
-            } else {
-                p.updateDescription();
-            }
-        }
-
+        this.addToTop(new ApplyPowerAction(this.owner,this.owner,new RegenPower(this.owner,getRegen),getRegen));
     }
 
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-    }
 }

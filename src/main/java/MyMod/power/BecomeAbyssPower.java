@@ -1,6 +1,5 @@
 package MyMod.power;
 
-
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,12 +9,11 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
-
-//回合开始时添加getD点敏捷
-public class BecomeMountainPower extends AbstractPower {
+public class BecomeAbyssPower extends AbstractPower {
     // 能力的ID
-    public static String POWER_ID = "BecomeMountainPower";
+    public static String POWER_ID = "BecomeAbyssPower";
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -24,17 +22,12 @@ public class BecomeMountainPower extends AbstractPower {
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-
-
-
-    public BecomeMountainPower(AbstractCreature owner,int amount){
+    public BecomeAbyssPower(AbstractCreature owner, int amount) {
         this.amount=amount;
-
         this.name = NAME;
-        this.ID = BecomeMountainPower.POWER_ID;
+        this.ID = BecomeAbyssPower.POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
-
         String path128 = "img/powers/text84.png";
         String path48 = "img/powers/text32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
@@ -42,6 +35,7 @@ public class BecomeMountainPower extends AbstractPower {
         this.updateDescription();
     }
 
+    @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
@@ -50,9 +44,9 @@ public class BecomeMountainPower extends AbstractPower {
     public void atStartOfTurn() {
         this.flash();
 
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player,2 ),2));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, 1), 1));
 
-        AbstractPower p = this.owner.getPower(BecomeMountainPower.POWER_ID);
+        AbstractPower p = this.owner.getPower(BecomeAbyssPower.POWER_ID);
         if (p != null) {
             --p.amount;
             if (p.amount == 0) {
