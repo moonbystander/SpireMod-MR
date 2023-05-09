@@ -2,6 +2,10 @@ package MyMod.characters;
 
 import MyMod.cards.attack.DebrisFlow;
 import MyMod.cards.attack.Flood;
+import MyMod.cards.attack.Landslide;
+import MyMod.cards.power.RainOriginated;
+import MyMod.cards.skill.BecomeAbyss;
+import MyMod.cards.skill.BecomeMountain;
 import MyMod.cards.skill.Defend_MR;
 import MyMod.cards.attack.Strike_MR;
 import MyMod.cards.skill.RiverFlow;
@@ -75,12 +79,16 @@ public class mountainsRiver extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList();
         int x;
-        for(x = 0; x < 3; ++x) {
+        for(x = 0; x < 1; ++x) {
             retVal.add(Strike_MR.ID);
         }
-        for(x = 0; x < 4; ++x) {
+        for(x = 0; x < 1; ++x) {
             retVal.add(Defend_MR.ID);
         }
+        retVal.add(Landslide.ID);
+        retVal.add(BecomeAbyss.ID);
+        retVal.add(BecomeMountain.ID);
+        retVal.add(RainOriginated.ID);
         retVal.add(DebrisFlow.ID);
         retVal.add(Flood.ID);
         retVal.add(RiverFlow.ID);

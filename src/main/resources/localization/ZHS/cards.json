@@ -33,11 +33,11 @@
   },
   "DragonBorn": {
     "NAME": "蛟龙生焉",
-    "DESCRIPTION": "如果拥有至少5点力量，每回合对所有敌人造成 !D! 点伤害"
+    "DESCRIPTION": "如果拥有至少5点力量，每回合对所有敌人造成 !D! 点伤害 NL 别急"
   },
   "Landslide": {
     "NAME": "山崩",
-    "DESCRIPTION": "最大生命值减少20，造成敏捷 !D! 倍的伤害。 NL 消耗"
+    "DESCRIPTION": "最大生命值减少20。 NL 消耗"
   },
   "2": {
     "NAME": "流水潺潺",
@@ -45,18 +45,38 @@
   },
   "3": {
     "NAME": "愚公移山",
-    "DESCRIPTION": "获得 !M! 点最大生命值"
+    "DESCRIPTION": "获得 !M! 点最大生命值 NL 别急"
   },
   "4": {
     "NAME": "精卫填海",
-    "DESCRIPTION": "将力量全部转换为敏捷"
+    "DESCRIPTION": "将力量全部转换为敏捷 NL 别急"
   },
   "5": {
     "NAME": "暴虎冯河",
-    "DESCRIPTION": "将敏捷全部转换为力量"
+    "DESCRIPTION": "将敏捷全部转换为力量 NL 别急"
   },
   "6": {
     "NAME": "泄洪",
-    "DESCRIPTION": "使用所有力量，对所有敌人造成失去力量数3倍的伤害"
+    "DESCRIPTION": "使用所有力量，对所有敌人造成失去力量数3倍的伤害 NL 别急"
+  },
+  "bad1": {
+    "NAME": "土壤污染",
+    "DESCRIPTION": "懒狗作者填着凑数的技能卡"
+  },
+  "bad2": {
+    "NAME": "水污染",
+    "DESCRIPTION": "懒狗作者填着凑数的攻击卡"
+  },
+  "bad3": {
+    "NAME": "大气污染",
+    "DESCRIPTION": "懒狗作者填着凑数的能力卡"
+  },
+  "bad4": {
+  "NAME": "空气污染",
+  "DESCRIPTION": "懒狗作者填着凑数的诅咒卡"
+  },
+  "bad5": {
+    "NAME": "白色污染",
+    "DESCRIPTION": "懒狗作者填着凑数的状态卡"
   }
 }

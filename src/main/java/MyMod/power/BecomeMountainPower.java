@@ -1,6 +1,7 @@
 package MyMod.power;
 
 
+import MyMod.actions.ReducePowerAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -50,17 +51,8 @@ public class BecomeMountainPower extends AbstractPower {
     public void atStartOfTurn() {
         this.flash();
 
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player,2 ),2));
-
-        AbstractPower p = this.owner.getPower(BecomeMountainPower.POWER_ID);
-        if (p != null) {
-            --p.amount;
-            if (p.amount == 0) {
-                this.owner.powers.remove(p);
-            } else {
-                p.updateDescription();
-            }
-        }
+        this.addToBot(new ReducePowerAction(this.owner,BecomeMountainPower.POWER_ID,1));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player,2 ),2));
 
     }
 

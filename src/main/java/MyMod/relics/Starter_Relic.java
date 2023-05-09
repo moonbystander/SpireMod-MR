@@ -24,8 +24,8 @@ public class Starter_Relic extends CustomRelic {
     @Override
     public void atBattleStart() {
         this.flash();
-        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 3), 3));
-        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 3), 3));
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 20), 20));
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 20), 20));
         this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 }

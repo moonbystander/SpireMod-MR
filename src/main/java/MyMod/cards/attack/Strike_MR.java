@@ -5,11 +5,14 @@ import MyMod.characters.mountainsRiver;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -62,12 +65,10 @@ public class Strike_MR extends AbstractMRCard {
                 AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 
         this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.magicNumber), this.magicNumber));
-        //参数:动作事件(作用对象,伤害信息(来源,数值,不知道什么玩意),不知道什么玩意,不知道什么玩意)
-//        AbstractDungeon.actionManager.addToBottom(
-//                (AbstractGameAction)new DamageAction((AbstractCreature)abstractMonster,
-//                new DamageInfo((AbstractCreature)abstractPlayer,
-//                this.damage, this.damageTypeForTurn),
-//                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+
+        //将卡牌添加到卡组(实际生效的是 效果 里的这句       AbstractDungeon.getCurrRoom().souls.obtain(this.card, true);
+        //添加一张寄生到卡组
+        AbstractDungeon.actionManager.addToBottom(new AddCardToDeckAction(CardLibrary.getCard("Parasite").makeCopy()));
     }
 
     //在CustomCard类中,已经被默认实现,这里仅作为演示进行实现,之后不再重写此方法

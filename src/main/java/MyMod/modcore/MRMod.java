@@ -55,17 +55,10 @@ public class MRMod implements EditCardsSubscriber, EditStringsSubscriber, EditCh
     @Override
     public void receiveEditCards() {
 
-        BaseMod.addCard(new Strike_MR());
-        BaseMod.addCard(new Defend_MR());
-        BaseMod.addCard(new RiverFlow());
-        BaseMod.addCard(new Flood());
-        BaseMod.addCard(new DebrisFlow());
-
-//        //TODO:使用 AutoAdd自动注册所有卡牌
-//        new AutoAdd("Test_mod_mountains_rivers")
-//                .packageFilter(AbstractMRCard.class)
-//                .setDefaultSeen(true)
-//                .cards();
+        new AutoAdd("Test_mod_mountains_rivers")
+                .packageFilter(AbstractMRCard.class)
+                .setDefaultSeen(true)
+                .cards();
 
     }
 

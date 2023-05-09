@@ -19,7 +19,7 @@ public class BecomeAbyss extends AbstractMRCard {
 
     public BecomeAbyss(){
         super(ID, NAME, AbstractMRCard.TESTIMG, COST, DESCRIPTION, CardType.SKILL, mountainsRiver.Enums.MR_CARD_COLOR , CardRarity.UNCOMMON, CardTarget.NONE);
-        this.baseMagicNumber=1;
+        this.baseMagicNumber=2;
         this.magicNumber=this.baseMagicNumber;
     }
 

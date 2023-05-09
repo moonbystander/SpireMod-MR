@@ -1,5 +1,6 @@
 package MyMod.power;
 
+import MyMod.actions.ReducePowerAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -44,17 +45,9 @@ public class BecomeAbyssPower extends AbstractPower {
     public void atStartOfTurn() {
         this.flash();
 
+        this.addToTop(new ReducePowerAction(owner,BecomeAbyssPower.POWER_ID,1));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, 1), 1));
 
-        AbstractPower p = this.owner.getPower(BecomeAbyssPower.POWER_ID);
-        if (p != null) {
-            --p.amount;
-            if (p.amount == 0) {
-                this.owner.powers.remove(p);
-            } else {
-                p.updateDescription();
-            }
-        }
 
     }
 

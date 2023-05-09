@@ -27,7 +27,7 @@ public class RainOriginatedPower extends AbstractPower {
 
     public RainOriginatedPower(AbstractCreature owner,int getRegen){
         this.amount=-1;
-        this.getRegen=getRegen;
+        this.name=NAME;
         this.owner=owner;
         this.type = PowerType.BUFF;
         this.ID=RainOriginatedPower.POWER_ID;
@@ -36,17 +36,19 @@ public class RainOriginatedPower extends AbstractPower {
         String path48 = "img/powers/text32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+
+        this.getRegen=getRegen;
         this.updateDescription();
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
     public void atStartOfTurn() {
         this.flash();
-        this.addToTop(new ApplyPowerAction(this.owner,this.owner,new RegenPower(this.owner,getRegen),getRegen));
+        this.addToBot(new ApplyPowerAction(this.owner,this.owner,new RegenPower(this.owner,getRegen),getRegen));
     }
 
 }
