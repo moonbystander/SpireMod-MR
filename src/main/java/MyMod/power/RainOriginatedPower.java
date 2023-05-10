@@ -27,6 +27,7 @@ public class RainOriginatedPower extends AbstractPower {
 
     public RainOriginatedPower(AbstractCreature owner,int getRegen){
         this.amount=-1;
+
         this.name=NAME;
         this.owner=owner;
         this.type = PowerType.BUFF;
@@ -47,8 +48,14 @@ public class RainOriginatedPower extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        this.flash();
-        this.addToBot(new ApplyPowerAction(this.owner,this.owner,new RegenPower(this.owner,getRegen),getRegen));
     }
 
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (!owner.hasPower(DexterityPower.POWER_ID) || owner.getPower(DexterityPower.POWER_ID).amount < 3){
+            return;
+        }
+        this.flash();
+        this.addToBot(new ApplyPowerAction(this.owner,this.owner,new RegenPower(this.owner,this.getRegen),this.getRegen));
+    }
 }

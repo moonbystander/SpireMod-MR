@@ -1,6 +1,7 @@
 package MyMod.power;
 
 
+import MyMod.actions.AddMaxHpAction;
 import MyMod.actions.ReducePowerAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -50,7 +51,7 @@ public class BecomeMountainPower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         this.flash();
-
+        this.addToBot(new AddMaxHpAction(owner,3));
         this.addToBot(new ReducePowerAction(this.owner,BecomeMountainPower.POWER_ID,1));
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player,2 ),2));
 

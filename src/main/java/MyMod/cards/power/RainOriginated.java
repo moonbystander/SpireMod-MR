@@ -19,8 +19,9 @@ public class RainOriginated extends AbstractMRCard {
 
 
     public RainOriginated(){
-        super(ID, NAME, AbstractMRCard.TESTIMG, COST, DESCRIPTION, CardType.SKILL, mountainsRiver.Enums.MR_CARD_COLOR , CardRarity.UNCOMMON, CardTarget.NONE);
+        super(ID, NAME, AbstractMRCard.TESTIMG, COST, DESCRIPTION, CardType.POWER, mountainsRiver.Enums.MR_CARD_COLOR , CardRarity.UNCOMMON, CardTarget.NONE);
         this.baseMagicNumber=2;
+        this.magicNumber=this.baseMagicNumber;
     }
 
     @Override

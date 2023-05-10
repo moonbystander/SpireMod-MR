@@ -66,9 +66,6 @@ public class Strike_MR extends AbstractMRCard {
 
         this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.magicNumber), this.magicNumber));
 
-        //将卡牌添加到卡组(实际生效的是 效果 里的这句       AbstractDungeon.getCurrRoom().souls.obtain(this.card, true);
-        //添加一张寄生到卡组
-        AbstractDungeon.actionManager.addToBottom(new AddCardToDeckAction(CardLibrary.getCard("Parasite").makeCopy()));
     }
 
     //在CustomCard类中,已经被默认实现,这里仅作为演示进行实现,之后不再重写此方法

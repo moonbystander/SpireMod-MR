@@ -1,14 +1,12 @@
 package MyMod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 
 public class DebrisFlowAction extends AbstractGameAction {
 
@@ -34,6 +32,7 @@ public class DebrisFlowAction extends AbstractGameAction {
                 this.addToTop(new DamageAction(target,info,AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 this.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, defend));
             }
+            this.addToTop(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new DexterityPower(AbstractDungeon.player,count),count));
         }
         this.isDone = true;
     }

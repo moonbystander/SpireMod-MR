@@ -13,19 +13,19 @@
   },
   "Flood":{
     "NAME": "洪水",
-    "DESCRIPTION": "使用所有敏捷，每使用两点敏捷造成一次一点伤害"
+    "DESCRIPTION": "使用所有敏捷，每使用两点敏捷造成一次1点伤害，并获得1点力量"
   },
   "DebrisFlow":{
     "NAME": "泥石流",
-    "DESCRIPTION": "使用 !M! 点力量，丢弃所有手牌，每丢弃1张造成3点伤害并获得1点格挡"
+    "DESCRIPTION": "使用 !M! 点力量，丢弃所有手牌，每丢弃1张造成1次3点伤害，获得1点格挡和1点敏捷"
   },
   "BecomeMountain": {
     "NAME": "积土成山",
-    "DESCRIPTION": "接下来 !M! 回合，每回合获得2点敏捷"
+    "DESCRIPTION": "接下来 !M! 回合，每回合获得2点敏捷和3点生命上限"
   },
   "RainOriginated":{
     "NAME": "风雨兴焉",
-    "DESCRIPTION": "如果拥有至少 !M! 点敏捷，每回合获得3点再生"
+    "DESCRIPTION": "如果拥有至少 3 点敏捷，每回合获得 !M! 点再生"
   },
   "BecomeAbyss": {
     "NAME": "积水成渊",
@@ -37,7 +37,7 @@
   },
   "Landslide": {
     "NAME": "山崩",
-    "DESCRIPTION": "最大生命值减少20。 NL 消耗"
+    "DESCRIPTION": "最大生命值减少20，对所有敌人造成70点伤害。 NL 消耗"
   },
   "2": {
     "NAME": "流水潺潺",

@@ -36,8 +36,8 @@ public class mountainsRiver extends CustomPlayer {
     //初始能量
     private static final int ENERGY_PER_TURN = 3;
     //以下图片依次作用为[篝火休息处的角色背影2，篝火休息处的角色背影1，角色死亡后倒下的图片，角色平常站立时的图片]
-    private static final String MR_SHOULDER_2 = "img/char/shoulder.png";
-    private static final String MR_SHOULDER_1 = "img/char/shoulder.png";
+    private static final String MR_SHOULDER_2 = "img/char/shoulder1.png";
+    private static final String MR_SHOULDER_1 = "img/char/shoulder1.png";
 
     //各种素材
     //能量图标()
@@ -180,7 +180,7 @@ public class mountainsRiver extends CustomPlayer {
 
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
-        return new AbstractGameAction.AttackEffect[0];
+        return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
     }
 
     //吸血鬼事件文本
